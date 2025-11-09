@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { PrismaClient } from "@prisma/client";
+import { getAllRoutes, getComparison, setBaseline } from "../../adaptors/inbound/http/routeController";
+
 
 dotenv.config();
 const app = express();
@@ -9,6 +11,9 @@ const prisma = new PrismaClient();
 
 app.use(cors());
 app.use(express.json());
+app.get("/routes", getAllRoutes);
+app.post("/routes/:id/baseline", setBaseline);
+app.get("/routes/comparison", getComparison);
 
 app.get("/", (req, res) => {
     res.send("FuelEU Compliance API is live 🚀");
