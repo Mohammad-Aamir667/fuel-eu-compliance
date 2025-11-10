@@ -1,10 +1,10 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { PrismaClient } from "@prisma/client";
 import { getAllRoutes, getComparison, setBaseline } from "../../adaptors/inbound/http/routeController";
 import complianceRouter from "../../adaptors/inbound/http/complianceController";
 import bankingRouter from "../../adaptors/inbound/http/bankingController";
+import poolingRouter from "../../adaptors/inbound/http/poolingController";
 dotenv.config();
 const app = express();
 
@@ -15,7 +15,7 @@ app.post("/routes/:id/baseline", setBaseline);
 app.get("/routes/comparison", getComparison);
 app.use("/compliance", complianceRouter);
 app.use("/banking", bankingRouter);
-
+app.use("/", poolingRouter);
 app.get("/", (req, res) => {
     res.send("FuelEU Compliance API is live 🚀");
 });
