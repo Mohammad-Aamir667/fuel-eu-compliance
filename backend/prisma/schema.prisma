@@ -21,17 +21,21 @@ model Route {
 }
 
 model ShipCompliance {
-  id       Int    @id @default(autoincrement())
-  shipId   String
-  year     Int
-  cbGco2eq Float
+  id        Int      @id @default(autoincrement())
+  shipId    String
+  year      Int
+  cbGco2eq  Float
+  createdAt DateTime @default(now())
+
+  @@unique([shipId, year])
 }
 
 model BankEntry {
-  id         Int    @id @default(autoincrement())
-  shipId     String
-  year       Int
+  id           Int      @id @default(autoincrement())
+  shipId       String
+  year         Int
   amountGco2eq Float
+  createdAt    DateTime @default(now())
 }
 
 model Pool {
