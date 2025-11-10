@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import RoutesTab from "../components/RoutesTab";
 
 export default function Dashboard() {
