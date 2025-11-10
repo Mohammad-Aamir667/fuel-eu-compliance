@@ -1,5 +1,6 @@
 import { useState } from "react";
 import RoutesTab from "../components/RoutesTab";
+import CompareTab from "../components/CompareTab";
 
 export default function Dashboard() {
     const [activeTab, setActiveTab] = useState("routes");
@@ -27,7 +28,7 @@ export default function Dashboard() {
             {/* Tab Content */}
             <div className="p-6">
                 {activeTab === "routes" && <RoutesTab />}
-                {activeTab === "compare" && <div>Compare Tab</div>}
+                {activeTab === "compare" && <CompareTab />}
                 {activeTab === "banking" && <div>Banking Tab</div>}
                 {activeTab === "pooling" && <div>Pooling Tab</div>}
             </div>
